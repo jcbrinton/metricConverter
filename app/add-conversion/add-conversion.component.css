@@ -1,0 +1,18 @@
+input {
+  padding: .5rem;
+  border-radius: 4px;
+  margin: .5em;
+  width: 10em;
+  list-style-type: none;
+
+}
+
+button {
+  cursor: pointer;
+  border-radius: 4px;
+  
+}
+
+label {
+	display : inherit;
+}

@@ -1,0 +1,27 @@
+<app-add-conversion></app-add-conversion>
+
+<ul class="conversions">
+  <li *ngFor="let conversion of conversions"
+    [class.selected]="conversion === selectedConversion"
+    (click)="onSelect(conversion)">
+    {{conversion.metricUnit}} - {{conversion.nonMetricUnit}}
+  </li>
+</ul>
+
+
+
+
+<div *ngIf="selectedConversion">
+
+
+<h2>{{selectedConversion.metricUnit}} <=> {{selectedConversion.nonMetricUnit}} </h2>
+<div><span>1 {{selectedConversion.metricUnit}} = </span>{{selectedConversion.conversionRate + selectedConversion.conversionConstant| number: '1.0-3'}} {{selectedConversion.nonMetricUnit}}</div>
+<div><span>1 {{selectedConversion.nonMetricUnit}} = </span>{{(1 - selectedConversion.conversionConstant)/selectedConversion.conversionRate| number: '1.0-3'}} {{selectedConversion.metricUnit}}</div>
+<div>
+  <input id="input1"  (keyup)="convertTo(selectedConversion)" [ngModel]="metricValue| number: '1.0-3'" (ngModelChange)="metricValue=$event" >
+  <label for="name">{{selectedConversion.metricUnit}}  = </label>
+  <input id="input2"  (keyup)="convertFrom(selectedConversion)" [ngModel]="nonMetricValue| number: '1.0-3'" (ngModelChange)="nonMetricValue=$event">
+  <label for="name">{{selectedConversion.nonMetricUnit}}</label>
+</div>
+
+</div>

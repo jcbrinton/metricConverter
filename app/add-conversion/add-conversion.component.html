@@ -1,0 +1,14 @@
+<div class="addnew">
+  <span><label for="new-converion">Metric Unit: </label>
+  <input id="new-converion" #metric /></span>
+  <span><label for="new-converion">Non-Metric Unit: </label>
+  <input id="new-converion" #nonMetric /></span>
+  <span><label for="new-converion">Conversion Rate: </label>
+  <input type="number" id="new-converion" #rate ng-pattern="/^\d*$/" required></span>
+  <span><label for="new-converion">Conversion Constant: </label>
+  <input type="number" id="new-converion" #constant ng-pattern="/^\d*$/" required></span>
+
+  <button class="add-button" (click)="add(metric.value,nonMetric.value, rate.value, constant.value ); metric.value=''; nonMetric.value=''; rate.value=''; constant.value='' ">
+    Add new conversion
+  </button>
+</div>
